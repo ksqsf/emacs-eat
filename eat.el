@@ -4806,15 +4806,15 @@ EXCEPTIONS is a list of key sequences to not bind.  Don't use
   "Return the most suitable value for `TERM' for DISPLAY.
 
 If the number of colors supported by display (as returned by
-`display-color-cells') is more than 256, return \"eat-truecolor\", if
+`display-color-cells') is more than 256, return \"xterm-truecolor\", if
 it is more than 8 but less than or equal to 256, return
-\"eat-256color\", if is more than 1 but less than or equal to 8,
-return \"eat-color\", otherwise return \"eat-mono\"."
+\"xterm-256color\", if is more than 1 but less than or equal to 8,
+return \"xterm-color\", otherwise return \"xterm-mono\"."
   (let ((colors (display-color-cells display)))
-    (cond ((> colors 256) "eat-truecolor")
-          ((> colors 8) "eat-256color")
-          ((> colors 1) "eat-color")
-          (t "eat-mono"))))
+    (cond ((> colors 256) "xterm-truecolor")
+          ((> colors 8) "xterm-256color")
+          ((> colors 1) "xterm-color")
+          (t "xterm-mono"))))
 
 (defun eat-term-filter-string (string)
   "Filter Eat's special text properties from STRING."
