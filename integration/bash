@@ -121,7 +121,7 @@ _eat_msg () {
 
 # Enable.
 if test -z "$__eat_integration_enabled" && \
-    test "${TERM:0:5}" = "xterm-"
+    test "${TERM:0:6}" = "xterm-"
 then
   __eat_enable_integration
 else
