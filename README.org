@@ -1,5 +1,16 @@
 #+title: Eat: Emulate A Terminal
 
+* What's this?
+
+This is a fork of [[https://codeberg.org/akib/emacs-eat/issues][emacs-eat by akib]] for my own use.  Changes:
+
+1. Some PRs merged to be compatible with Emacs 31.
+2. Make integration scripts recognize xterm for remote shells.  This
+   is probably wrong but it works for me.
+
+
+* Eat's original README
+
 Eat's name self-explanatory, it stands for "Emulate A Terminal".  Eat
 is a terminal emulator.  It can run most (if not all) full-screen
 terminal programs, including Emacs.
@@ -18,7 +29,7 @@ performance and a smoother experience.
 
 To get the most out of Eat, you should also setup shell integration.
 
-* Usage
+** Usage
 
 To start Eat, run =M-x eat=.  Eat has four input modes:
 
@@ -96,11 +107,11 @@ For Zsh, put the following in your ~.zshrc~:
 There's a Info manual available with much more information, which can
 be accessed with =C-h i m Eat=, also available [[https://elpa.nongnu.org/nongnu-devel/doc/eat.html][here on the internet]].
 
-* Installation
+** Installation
 
 Eat requires at least Emacs 26.1 or above.
 
-** NonGNU ELPA
+*** NonGNU ELPA
 
 Eat is available on NonGNU ELPA.  So you can just do
 =M-x package-install RET eat RET=.
@@ -113,7 +124,7 @@ your ~package-archives~ by putting the following in your ~init.el~:
              '("nongnu" . "https://elpa.nongnu.org/nongnu/"))
 #+end_src
 
-** Quelpa
+*** Quelpa
 
 #+begin_src emacs-lisp
 (quelpa '(eat :fetcher git
@@ -125,7 +136,7 @@ your ~package-archives~ by putting the following in your ~init.el~:
                       (:exclude ".dir-locals.el" "*-tests.el"))))
 #+end_src
 
-** Straight.el
+*** Straight.el
 
 #+begin_src emacs-lisp
 (straight-use-package
@@ -139,13 +150,13 @@ your ~package-archives~ by putting the following in your ~init.el~:
                (:exclude ".dir-locals.el" "*-tests.el"))))
 #+end_src
 
-** Manual
+*** Manual
 
 Clone the repository and put it in your ~load-path~.
 
-* Comparison With Other Terminal Emulators
+** Comparison With Other Terminal Emulators
 
-** Term
+*** Term
 
 Term is the Emacs built-in terminal emulator.  Its terminal emulation
 is pretty good too.  But it's slow.  It is so slow that Eat can beat
@@ -155,7 +166,7 @@ flickers, just try to run =emacs -nw= in it.  It doesn't support
 remote connections, for example over Tramp.  However, it's builtin
 from the early days of Emacs, while Eat needs atleast Emacs 26.1.
 
-** Vterm
+*** Vterm
 
 Vterm is powered by a C library, libvterm.  For this reason, it can
 process huge amount of text quickly.  It is about 1.5 times faster
@@ -166,7 +177,7 @@ flickers like Term, so despite being much faster that Eat, it seems to
 be slow.  If you need your terminal to handle huge bursts (megabytes)
 of data, you should use Vterm.
 
-** Coterm + Shell
+*** Coterm + Shell
 
 Coterm adds terminal emulation to Shell mode.  Although the terminal
 Coterm emulates is same as Term, it is much faster, about three times,
@@ -177,7 +188,7 @@ UI (Company, Corfu, etc), etc.  Most of these features are available
 in Eat, and also in Eat-Eshell-Mode as Eshell is similar to Shell,
 however it's not Shell mode.  Recommended if you like Shell.
 
-* Acknowledgements
+** Acknowledgements
 
 This wouldn't have been possible if the following awesome softwares
 didn't exist:
